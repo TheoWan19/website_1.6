@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Article{% endblock %}
+{% block content %}
+<main role="main" class="container-xl">
+	<div class="row">
+	    <div class="col-lg-12 col-md-12-p-0 col-sm-12">
+	        <div class="row media content-section mobiledevice">
+			    <div class="col-lg-12 col-md-12 col-sm-12">
+			        <div class="d-flex">
+			            <div>
+			                <h1 class="title-style">{{ object.title }}</h1>
+			                <h2 class="subtitle-style">{{ object.subtitle }}</h2>
+			            </div>
+			        </div>
+			    </div>
+			    <div class="col-lg-9 col-md-12 col-sm-12" id="content">
+			        <div class="article-style">
+			            {{ object.content|safe }}
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</main>
+	
+{% endblock %}
