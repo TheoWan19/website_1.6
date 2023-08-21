@@ -8,7 +8,7 @@ class ProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(admin.ModelAdmin):
 	model = CustomUser
-	fields = ['first_name', 'last_name', 'username', 'email', 'mobile', 'date_birth', 'gender','status', 'description']
+	fields = ['password', 'first_name', 'last_name', 'username', 'email', 'mobile', 'date_birth', 'gender','status', 'description']
 	inlines = [ProfileInline]
 
 # Register your models here.

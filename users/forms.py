@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import get_user_model
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
+from . models import Profile, CustomUser
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -10,7 +10,7 @@ class UserRegistrationForm(UserCreationForm):
 	password1 = forms.CharField(label='Password', help_text='Enter Your Password', widget=forms.PasswordInput())
 
 	class Meta:
-		model = get_user_model()
+		model = CustomUser
 		fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
 	def save(self, commit=True):
@@ -40,5 +40,5 @@ class UserUpdateForm(forms.ModelForm):
 	email = forms.EmailField()
 
 	class Meta:
-		model = get_user_model()
-		fields = ['first_name', 'last_name', 'email', 'description']	
+		model = CustomUser()
+		fields = ['first_name', 'last_name', 'email', 'mobile', 'date_birth', 'gender','description']	

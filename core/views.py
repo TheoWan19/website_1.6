@@ -16,10 +16,13 @@ def series(request, series:str):
 	matching_series = Article.objects.filter(series__slug=series).all()
 	return render(request, 'core/home.html', {'objects': matching_series})
 
-'''
+
 def article(request, series:str, article:str):
 	matching_article = Article.objects.filter(series__slug=series, article_slug=article).first()
-	return render(request, 'core/article.html', {'object': matching_article})
-'''
+	return render(
+		request=request, 
+		template_name='core/article.html', 
+		context={'object': matching_article})
+
 		
 

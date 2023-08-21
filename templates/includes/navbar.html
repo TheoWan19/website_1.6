@@ -9,12 +9,14 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
+        {% if user.is_superuser %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'profile_list' %}">Profile List</a>
         </li>
+        {% endif %}
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile' request.user.id %}">My Profile</a>
+          <a class="nav-link" href="{% url 'profile' user.username %}">{{user.username}}&nbsp;<i class="fas fa-user"></i></a>
         </li>
         {% endif %}
         <li class="nav-item dropdown">
